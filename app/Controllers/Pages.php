@@ -9,9 +9,8 @@ class Pages extends BaseController
 {
     public function index()
     {
-        return view('index');
+        return view("index");
     }
-    
     public function view($page = 'home')
     {
         if (! is_file(APPPATH . 'Views/pages/' . $page . '.php')) {
@@ -23,21 +22,6 @@ class Pages extends BaseController
 
         return view('templates/header', $data)
             . view('pages/' . $page)
-            . view('templates/footer');
-    }
-    
-    public function mahasiswa()
-    {
-        $mahasiswaModel = new Mahasiswa();
-        $mahasiswa = $mahasiswaModel->findAll();
-
-        $data = [
-            'title' => 'Mahasiswa',
-            'mahasiswa' => $mahasiswa
-        ];
-
-        return view('templates/header', $data)
-            . view('pages/mahasiswa', $data)
             . view('templates/footer');
     }
 }

@@ -11,14 +11,19 @@ class MahasiswaController extends BaseController
     {
         $mahasiswaModel = new Mahasiswa();
         $mahasiswa = $mahasiswaModel->findAll();
-
-        $data = [
-            'title' => 'Mahasiswa',
-            'mahasiswa' => $mahasiswa
-        ];
-
+        $data = ['title' => 'Mahasiswa',
+        'mahasiswa'=>$mahasiswa];
+        
         return view('templates/header', $data)
             . view('mahasiswa/list', $data)
             . view('templates/footer');
+    }
+
+    public function create(){
+        $data = ['title' => 'Create Mahasiswa'];
+
+        return view('templates/header', $data)
+        . view('mahasiswa/create')
+        . view('templates/footer');
     }
 }
