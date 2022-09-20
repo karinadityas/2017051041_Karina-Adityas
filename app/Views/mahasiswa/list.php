@@ -20,6 +20,15 @@
       <td><?= $mhs['nama'] ?></td>
       <td><?= $mhs['alamat'] ?></td>
       <td><?= $mhs['created_at'] ?></td>
+      <td>
+        <div class = 'd-flex'>
+          <a href="/edit/<?= $mhs['id'] ?>" type="button" class="btn btn-warning mr-3">Edit</a>
+          <form action = "/delete/<?= $mhs['id'] ?>" method = 'post'>
+            <input name = '_method' value = 'DELETE' type = 'hidden'>
+            <button type = 'submit' class = 'btn btn-danger'> Delete </button>
+          </form>
+        </div>
+        </td>
     </tr>
     <?php $no++; endforeach;?>
   </tbody>
